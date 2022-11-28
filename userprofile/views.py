@@ -11,8 +11,11 @@ def signup(request):
             user = form.save()
 
             UserProfile.objects.create(user=user)
-            return redirect(index)
+            return redirect(login)
     else:
         form = UserCreationForm()
 
     return render(request, 'userprofile/signup.html', {'form':form})
+
+def login(request):
+    return render(request, 'userprofile/login.html')
