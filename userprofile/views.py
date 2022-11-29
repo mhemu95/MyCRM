@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 
+
 from .models import UserProfile
 
 
@@ -11,11 +12,12 @@ def signup(request):
             user = form.save()
 
             UserProfile.objects.create(user=user)
-            return redirect(login)
+            return redirect('/log-in/')
     else:
         form = UserCreationForm()
 
     return render(request, 'userprofile/signup.html', {'form':form})
 
-def login(request):
-    return render(request, 'userprofile/login.html')
+
+# def login(request):
+#     return render(request, 'userprofile/login.html')
