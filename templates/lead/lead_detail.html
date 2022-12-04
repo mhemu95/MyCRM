@@ -12,6 +12,9 @@
             <p class="mb-2"> {{lead.description}} </p>
         {% endif %}
         
+        <p class="font-semibold"> Email </p>
+        <p class="mb-2"> {{lead.email}} </p>
+
         <p class="font-semibold"> Priority </p>
         <p class="mb-2"> {{lead.get_priority_display}} </p>
 
@@ -25,6 +28,7 @@
         <p class="mb-2"> {{lead.modified_at}} </p>
 
         <hr class="my-4">
+            <a href=" {% url 'make_client' lead.pk %} " class="py-2 px-2 rounded-xl bg-blue-500 text-white">Make Client</a>
             <a href=" {% url 'lead_edit' lead.pk %} " class="py-2 px-2 rounded-xl bg-teal-500 text-white">Update lead</a>
             <a href=" {% url 'lead_delete' lead.pk %} " class="py-2 px-2 rounded-xl bg-red-500 text-white">Delete lead</a>
         <hr class="my-4">

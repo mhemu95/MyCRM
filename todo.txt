@@ -4,3 +4,12 @@
     # views & forms for Leads
     # view leads into a list (view list)
     # make a detaile page for lead detail view
+
+# Create new Client
+    # create app
+    # create model for Client
+    # create client from lead_detail page
+    # show only leads that are not client in leads list
+    # make clients list
+    # make a detail page for client
+    # edit and delete client

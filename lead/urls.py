@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.leads_list, name='leads_list'),
     path('detail/<int:pk>/', views.lead_detail, name='lead_detail'),
     path('delete/<int:pk>/', views.lead_delete, name='lead_delete'),
+    path('convert/<int:pk>/', views.became_client, name='make_client'),
     path('edit/<int:pk>/', views.lead_update, name='lead_edit'),
     path('add-lead/', views.add_lead, name='add_lead'),
 ]
