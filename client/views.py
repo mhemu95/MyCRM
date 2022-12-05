@@ -39,3 +39,32 @@ def add_client(request):
         form = AddClientForm()
 
     return render(request, 'client/add_client.html', {'form':form})
+
+
+@login_required
+def update_client(request, pk):
+    client = get_object_or_404(Client, created_by=request.user, pk=pk)
+
+    if request.method == 'POST':
+        form = AddClientForm(request.POST, instance=client)
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Client updated successfully')
+
+            return redirect(client_list)
+    else:
+        form = AddClientForm(instance=client)
+
+    return render(request, 'client/update_client.html', {'form':form})
+
+
+@login_required
+def delete_client(request, pk):
+    client = get_object_or_404(Client, created_by=request.user, pk=pk)
+    client.delete()
+
+    messages.success(request, 'Client deleted.')
+
+    return redirect(client_list)
